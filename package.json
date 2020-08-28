@@ -1,0 +1,35 @@
+{
+  "name": "lp-project-backend",
+  "version": "0.0.1",
+  "description": "Backend for LP App",
+  "main": "server.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development env-cmd -f .env node server.js",
+    "server:dev": "cross-env NODE_ENV=development env-cmd -f .env nodemon server.js --config nodemon.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlos Carvajal",
+  "license": "ISC",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.11",
+    "sequelize": "^5.21.5",
+    "shortid": "^2.2.15",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "nodemon": "^2.0.4"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "scripts/**",
+    "docs/"
+  ],
+  "events": {
+    "restart": ""
+  },
+  "watch": [
+    "app.js",
+    "db/**",
+    "api/**",
+    "index.js"
+  ],
+  "ext": "js json"
+}
