@@ -1,8 +1,8 @@
 const { Logform } = require("winston");
 
 module.exports = (sequelize, DataTypes) => {
-    const Loss_Record = sequelize.define(
-      "Loss_Record",
+    const Need_Record = sequelize.define(
+      "Need_Record",
       {
         id: {
           type: DataTypes.INTEGER,
@@ -30,9 +30,17 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        ubicacion: {
-          type: DataTypes.INTEGER,
+        tipo: {
+          type: DataTypes.STRING,
           allowNull: false,
+          validate: {
+            notNull: {
+              msg: "Type is missing",
+            },
+            notEmpty: {
+              msg: "Type must not be empty",
+            },
+          },
         },
         telefono: {
           type: DataTypes.STRING,
@@ -58,6 +66,18 @@ module.exports = (sequelize, DataTypes) => {
               },
             },
           },
+        correo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                notNull: {
+                msg: "Contact mail is missing",
+                },
+                notEmpty: {
+                msg: "Contact mail must not be empty",
+                },
+            },
+        },
         state: {
           type: DataTypes.BOOLEAN,
           allowNull: false,
@@ -84,25 +104,25 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       {
-        tableName: "LOSS_RECORD",
+        tableName: "NEED_RECORD",
         underscored: false,
         name: {
-          singular: "LOSS_RECORD",
-          plural: "LOSS_RECORDS",
+          singular: "NEED_RECORD",
+          plural: "NEED_RECORDS",
         },
         sequelize,
       }
     );
-    Loss_Record.associate=(models) => {
-        Loss_Record.belongsTo(models.User,{
+    Need_Record.associate=(models) => {
+        Need_Record.belongsTo(models.User,{
             foreignKey:'username',
             target:'id'
         });
-        Loss_Record.belongsTo(models.Pet,{
+        Need_Record.belongsTo(models.Pet,{
             foreignKey:'mascota',
             target:'id'
         });
     };
-    return Loss_Record;
+    return Need_Record;
   };
   
