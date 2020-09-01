@@ -31,6 +31,11 @@ const serverApp = async () => {
   //Require api
   const api = require("./api/modules");
   app.use("/api", api);
+
+  //Require API Dog
+
+  const api_dog = require("./api/dog-api/dog-api");
+  app.use("/api/api-dog", api_dog);
   
   // Error handling middleware
   app.use((err, _req, _res, _next) => {
