@@ -7,9 +7,9 @@ async function consult(req, res, next) {
   }
   async function consultByID(req, res, next) {
     const pets = await global.db.Pet;
-    const {body}=req;
+    const {params}=req;
     return pets
-      .findOne({ where: {id: body.id}})
+      .findOne({ where: {id: params.id}})
       .then((pets) => res.status(200).send(pets))
       .catch((error) => res.status(400).send(error));
   }

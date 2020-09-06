@@ -4,7 +4,7 @@ module.exports = (app) =>{
         .post(PetsController.publish);
     app.route("/pets/consult")
         .get(PetsController.consult);
-        app.route("/pets/consultByID")
+        app.route("/pets/consult/:id")
         .get(PetsController.consultByID);
     app.route("/pets/update/:id")
         .put(PetsController.update);
