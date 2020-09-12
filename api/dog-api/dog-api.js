@@ -13,5 +13,16 @@ router.get('/:dog_breed', function(req, res) {
       });
   });
 
+  router.get('/', function(req, res) {
+    var options = { method: 'GET',
+    url: 'https://dog.ceo/api/breeds/image/random',
+    };
+  
+      request(options, function (error, response, body) {
+        if (error) throw new Error(error);
+        res.send(body);
+      });
+  });
+
 
   module.exports=router;
