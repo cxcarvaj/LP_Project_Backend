@@ -4,6 +4,8 @@ module.exports = (app) =>{
         .post(UsersController.publish);
     app.route("/users/consult")
         .get(UsersController.consult);
+        app.route("/users/consult/:username")
+        .get(UsersController.consultByUsername);
     app.route("/users/update/:username")
         .put(UsersController.update);
     app.route("/users/delete/:username")

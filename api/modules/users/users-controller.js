@@ -5,6 +5,16 @@ async function consult(req, res, next) {
     .then((users) => res.status(200).send(users))
     .catch((error) => res.status(400).send(error));
 }
+
+async function consultByUsername(req, res, next) {
+  const users = await global.db.User;
+  const {params}=req;
+  return users
+    .findOne({ where: {username: params.username}})
+    .then((users) => res.status(200).send(users))
+    .catch((error) => res.status(400).send(error));
+}
+
 async function publish(req, res, next) {
   // crear user
   const user = await global.db.User;
@@ -46,6 +56,7 @@ async function clean(req, res, next){
 }
 module.exports = {
   consult,
+  consultByUsername,
   publish,
   update,
   clean,
