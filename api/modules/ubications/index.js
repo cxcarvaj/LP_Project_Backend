@@ -4,6 +4,8 @@ module.exports = (app) =>{
         .post(UbicationsController.publish);
     app.route("/ubications/consult")
         .get(UbicationsController.consult);
+    app.route("/ubications/consult/:id")
+        .get(UbicationsController.consultByID);
     app.route("/ubications/update/:id")
         .put(UbicationsController.update);
     app.route("/ubications/delete/:id")

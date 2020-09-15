@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
             },
           },
           ubicacion: {
-            type: DataTypes.STRING,
+            type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
               notNull: {

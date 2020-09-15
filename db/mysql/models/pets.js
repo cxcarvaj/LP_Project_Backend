@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
                 msg: "Gender must not be empty",
               },
               isIn: {
-                args: [["Male","Female"]],
+                args: [["Macho","Hembra"]],
                 msg: "Gender not allowed",
               },
             },

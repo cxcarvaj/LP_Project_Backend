@@ -3,8 +3,9 @@ module.exports = (sequelize, DataTypes) => {
       "Ubication",
       {
         id: {
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           allowNull: false,
+          autoIncrement: true,
           validate: {
             notNull: {
               msg: "Ubicacion is missing",

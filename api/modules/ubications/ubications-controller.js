@@ -5,6 +5,14 @@ async function consult(req, res, next) {
       .then((ubication) => res.status(200).send(ubication))
       .catch((error) => res.status(400).send(error));
   }
+  async function consultByID(req, res, next) {
+    const ubications = await global.db.Ubication;
+    const {params}=req;
+    return ubications
+      .findOne({ where: {id: params.id}})
+      .then((ubication) => res.status(200).send(ubication))
+      .catch((error) => res.status(400).send(error));
+  }
   async function publish(req, res, next) {
     // crear ubicacion
     const ubication = await global.db.Ubication;
@@ -42,6 +50,7 @@ async function consult(req, res, next) {
   }
   module.exports = {
     consult,
+    consultByID,
     publish,
     update,
     clean,
