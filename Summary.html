@@ -45,7 +45,7 @@
       </thead>
       <tbody>
         <tr>
-          <td rowspan="4">User</td>
+          <td rowspan="5">User</td>
           <td><a href="#post-users">/users/register</a></td>
           <td><a href="#post-users">POST</a></td>
           <td>Add a new User</td>
@@ -63,6 +63,11 @@
           <td><a href="#delete-users">/users/delete/:{username}</a></td>
           <td><a href="#delete-users">DELETE</a></td>
           <td>Delete a User</td>
+        </tr>
+        <tr>
+          <td><a href="#get-user">/users/consult/:{username}</a></td>
+          <td><a href="#get-user">GET</a></td>
+          <td>Consult user by username</td>
         </tr>
         <tr>
           <td rowspan="4">Pets</td>
@@ -84,7 +89,6 @@
           <td><a href="#delete-pets">DELETE</a></td>
           <td>Delete a Pet</td>
         </tr>
-        <tr>
           <td rowspan="4">Ubications</td>
           <td><a href="#post-ubications">/ubications/register</a></td>
           <td><a href="#post-ubications">POST</a></td>
@@ -104,7 +108,6 @@
           <td><a href="#delete-ubications">DELETE</a></td>
           <td>Delete a Ubication</td>
         </tr>
-        <!-- /lossrecords/register -->
         <tr>
           <td rowspan="4">Loss Records</td>
           <td><a href="#post-lossrecords">/lossrecords/register</a></td>
@@ -125,7 +128,6 @@
           <td><a href="#delete-lossrecords">DELETE</a></td>
           <td>Delete a Loss Record</td>
         </tr>
-
         <tr>
           <td rowspan="4">Need Records</td>
           <td><a href="#post-needrecords">/needrecords/register</a></td>
@@ -146,7 +148,6 @@
           <td><a href="#delete-needrecords">DELETE</a></td>
           <td>Delete a Need Record</td>
         </tr>
-
         <tr>
           <td rowspan="4">Foundations</td>
           <td><a href="#post-foundations">/foundations/register</a></td>
@@ -179,309 +180,1692 @@
     <div>
       <h2>Paths</h2>
       <div class="card mb-4 card border-success">
-        <div class="card-header" id="post-users">
+        <div class="card-header bg-success" id="post-users">
           <strong>POST /users/register</strong>
           <div class="ml-auto">Add a new User</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Users</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-users">
+        <div class="card-header bg-info" id="get-users">
           <strong>GET /users/consult</strong>
           <div class="ml-auto">Fetch a list of Users</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    all
+                  </td>
+                  <td>
+                    Can only be used by admins to fetch all users in the db
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">Users</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-warning">
-        <div class="card-header" id="put-users">
+        <div class="card-header bg-warning" id="put-users">
           <strong>PUT /users/update/:{username}</strong>
           <div class="ml-auto">Update a User</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Users</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-danger">
-        <div class="card-header" id="delete-users">
+        <div class="card-header bg-danger" id="delete-users">
           <strong>DELETE /users/delete/:{username}</strong>
           <div class="ml-auto">Delete a User</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                204 No Content
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>No Content</p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
+        </div>
+      </div>
+      <div class="card mb-4 border-info ">
+        <div class="card-header bg-info" id="get-user">
+          <strong>GET /users/consult/:{username}</strong>
+          <div class="ml-auto">Fetch a username</div>
+        </div>
+        <div class="card-body">
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    all
+                  </td>
+                  <td>
+                    Can only be used by admins to fetch a user by username in the db
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">username</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <!--  -->
       <div class="card mb-4 card border-success">
-        <div class="card-header" id="post-pets">
+        <div class="card-header bg-success" id="post-pets">
           <strong>POST /pets/register</strong>
           <div class="ml-auto">Add a new Pet</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Pets</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-pets">
+        <div class="card-header bg-info" id="get-pets">
           <strong>GET /pets/consult</strong>
           <div class="ml-auto">Fetch a list of Pets</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    all
+                  </td>
+                  <td>
+                    Can only be used by admins to fetch all pets in the db
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">Pets</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-warning">
-        <div class="card-header" id="put-pets">
+        <div class="card-header bg-warning" id="put-pets">
           <strong>PUT /pets/update/:{id}</strong>
           <div class="ml-auto">Update a Pet</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Pets</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-danger">
-        <div class="card-header" id="delete-pets">
+        <div class="card-header bg-danger" id="delete-pets">
           <strong>DELETE /pets/delete/:{id}</strong>
           <div class="ml-auto">Delete a Pet</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                204 No Content
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>No Content</p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <!--  -->
       <div class="card mb-4 card border-success">
-        <div class="card-header" id="post-ubications">
+        <div class="card-header bg-success" id="post-ubications">
           <strong>POST /ubications/register</strong>
           <div class="ml-auto">Add a new Ubication</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Ubication</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
-      </div>
+        </div>
       <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-ubications">
+        <div class="card-header bg-info" id="get-ubications">
           <strong>GET /ubications/consult</strong>
           <div class="ml-auto">Fetch a list of Ubications</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    all
+                  </td>
+                  <td>
+                    Can only be used by admins to fetch all ubications in the db
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">Ubications</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-warning">
-        <div class="card-header" id="put-ubications">
+        <div class="card-header bg-warning" id="put-ubications">
           <strong>PUT /ubications/update/:{id}</strong>
           <div class="ml-auto">Update a Ubication</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Ubication</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-danger">
-        <div class="card-header" id="delete-ubications">
+        <div class="card-header bg-danger" id="delete-ubications">
           <strong>DELETE /ubications/delete/:{id}</strong>
           <div class="ml-auto">Delete a Ubication</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                204 No Content
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>No Content</p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <!--  -->
       <div class="card mb-4 card border-success">
-        <div class="card-header" id="post-lossrecords">
+        <div class="card-header bg-success" id="post-lossrecords">
           <strong>POST /lossrecords/register</strong>
           <div class="ml-auto">Add a new Loss Record</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Loss Records</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-lossrecords">
+        <div class="card-header bg-info" id="get-lossrecords">
           <strong>GET /lossrecords/consult</strong>
           <div class="ml-auto">Fetch a list of Loss Records</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    all
+                  </td>
+                  <td>
+                    Can only be used by admins to fetch all Loss Records in the db
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">Loss Records</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-warning">
-        <div class="card-header" id="put-lossrecords">
+        <div class="card-header bg-warning" id="put-lossrecords">
           <strong>PUT /lossrecords/update/:{id}</strong>
           <div class="ml-auto">Update a Loss Record</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Loss Records</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-danger">
-        <div class="card-header" id="delete-lossrecords">
+        <div class="card-header bg-danger" id="delete-lossrecords">
           <strong>DELETE /lossrecords/delete/:{id}</strong>
           <div class="ml-auto">Delete a Loss Record</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                204 No Content
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>No Content</p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <!--  -->
       <div class="card mb-4 card border-success">
-        <div class="card-header" id="post-needrecords">
+        <div class="card-header bg-success" id="post-needrecords">
           <strong>POST /needrecords/register</strong>
           <div class="ml-auto">Add a new Need Record</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Need Records</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-needrecords">
+        <div class="card-header bg-info" id="get-needrecords">
           <strong>GET /needrecords/consult</strong>
           <div class="ml-auto">Fetch a list of Need Records</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+          <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+          <h6>Section</h6>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Data Type</th>
+                <th class="param-annotation"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  all
+                </td>
+                <td>
+                  Can only be used by admins to fetch all Need Records in the db
+                </td>
+                <td>query</td>
+                <td>
+                  <span class="json-property-type">object</span>
+                </td>
+                <td><span class="badge badge-secondary">global</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h5>Responses</h5>
+          <p><a href="#sw-default-produces">Uses default content-types: </a>
+            <span class="badge badge-secondary">application/json</span>
+          </p>
+          <dl>
+            <dt class="sw-response-200">
+              200 OK
+            </dt>
+            <dd class="sw-response-200">
+              <div class="row">
+                <div class="col-md-12">
+                  <p>OK</p>
+                </div>
+                <div class="card ml-3 w-25" style="max-width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title text-secondary">ITEMS</h5>
+                    <p class="card-text text-info">Need Records</p>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </section>
         </div>
       </div>
       <div class="card mb-4 border-warning">
-        <div class="card-header" id="put-needrecords">
+        <div class="card-header bg-warning" id="put-needrecords">
           <strong>PUT /needrecords/update/:{id}</strong>
           <div class="ml-auto">Update a Need Record</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Need Records</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-danger">
-        <div class="card-header" id="delete-needrecords">
+        <div class="card-header bg-danger" id="delete-needrecords">
           <strong>DELETE /needrecords/delete/:{id}</strong>
           <div class="ml-auto">Delete a Need Record</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                204 No Content
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>No Content</p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <!--  -->
       <div class="card mb-4 card border-success">
-        <div class="card-header" id="post-foundations">
+        <div class="card-header bg-success" id="post-foundations">
           <strong>POST /foundations/register</strong>
           <div class="ml-auto">Add a new Foundation</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Foundations</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
-      <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-foundations">
+      <div class="card mb-4 border-info">
+        <div class="card-header bg-info" id="get-foundations">
           <strong>GET /foundations/consult</strong>
           <div class="ml-auto">Fetch a list of Foundations</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    all
+                  </td>
+                  <td>
+                    Can only be used by admins to fetch all Foundations in the db
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">Foundation</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-warning">
-        <div class="card-header" id="put-foundations">
+        <div class="card-header bg-warning" id="put-foundations">
           <strong>PUT /foundations/update/:{id}</strong>
           <div class="ml-auto">Update a Foundation</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    body
+                  </td>
+                  <td>
+                  </td>
+                  <td>body</td>
+                  <td>
+                    <span class="json-property-type">object</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <p class="card-text text-info">Foundation</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <div class="card mb-4 border-danger">
-        <div class="card-header" id="delete-foundations">
+        <div class="card-header bg-danger" id="delete-foundations">
           <strong>DELETE /foundations/delete/:{id}</strong>
           <div class="ml-auto">Delete a Foundation</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    id
+                  </td>
+                  <td>
+                  </td>
+                  <td>path</td>
+                  <td>
+                    <span class="json-property-type">integer</span>
+                  </td>
+                  <td><span class="badge badge-secondary">required</span>
+                    <span class="badge badge-secondary">global</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+            <dl>
+              <dt class="sw-response-200">
+                204 No Content
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>No Content</p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
       <!--  -->
-      <div class="card mb-4 border-info ">
-        <div class="card-header" id="get-dogImage">
+      <div class="card mb-4 border-info">
+        <div class="card-header bg-info" id="get-dogImage">
           <strong>GET /api-dog/:{dog_breed}</strong>
           <div class="ml-auto">Fetch a list of Dog Images - URL</div>
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <section>
+            <h4 class="text-secondary">Description</h4>
+            <p>It returns a list of Dog Images - URL the user has access to</p>
+          </section>
+          <section class="sw-request-params">
+            <h5 class="text-secondary">REQUEST PARAMETERS</h5>
+            <h6>Section</h6>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Type</th>
+                  <th>Data Type</th>
+                  <th class="param-annotation"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    message
+                  </td>
+                  <td>
+                    <p>URL of dogs images</p>
+                  </td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">String</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    status
+                  </td>
+                  <td>Status of the url</td>
+                  <td>query</td>
+                  <td>
+                    <span class="json-property-type">String</span>
+                  </td>
+                  <td>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section>
+            <h5>Responses</h5>
+            <p><a href="#sw-default-produces">Uses default content-types: </a>
+              <span class="badge badge-secondary">application/json</span>
+            </p>
+
+            <dl>
+              <dt class="sw-response-200">
+                200 OK
+              </dt>
+              <dd class="sw-response-200">
+                <div class="row">
+                  <div class="col-md-12">
+                    <p>OK</p>
+                  </div>
+                  <div class="card ml-3 w-25" style="max-width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title text-secondary">ITEMS</h5>
+                      <p class="card-text text-info">DogImages</p>
+                    </div>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+          </section>
         </div>
       </div>
     </div>
